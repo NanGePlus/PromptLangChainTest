@@ -1,5 +1,0 @@
-langchain==0.2.15
-langchain-openai==0.1.22
-fastapi==0.112.0
-uvicorn==0.30.6
-langchain-community==0.2.15
