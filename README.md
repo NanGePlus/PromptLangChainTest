@@ -128,10 +128,39 @@ ONEAPI_CHAT_API_KEY = "这里填写LLM模型的API_KEY"
 ONEAPI_CHAT_MODEL = "qwen-plus"                                     
 **调整6:API服务设置相关  根据自己的实际情况进行调整:**                         
 PORT = 8012  # 服务访问的端口                  
-
 ### （2）运行apiTest脚本进行检索测试             
 进入basic文件夹下，在使用python apiTest.py命令启动脚本前，需根据自己的实际情况调整代码中的如下参数，运行成功后，可以查看smith的跟踪情况                  
 **调整1:默认非流式输出 True or False**                         
 stream_flag = False                      
 **调整2:检查URL地址中的IP和PORT是否和main脚本中相同**                          
-url = "http://localhost:8012/v1/chat/completions"                          
+url = "http://localhost:8012/v1/chat/completions"      
+
+## 4.2 基础案例:推荐流量包的智能客服测试(进阶1-短期记忆、长期记忆)
+### （1）启动main脚本
+实现使用langchain框架，在推荐流量包的智能客服项目的基础上增加短期记忆、长期记忆                           
+进入withMemoryTest文件夹下，在使用python main.py命令启动脚本前，需根据自己的实际情况调整代码中的如下参数：                                  
+**调整1:设置langsmith环境变量:**           
+os.environ["LANGCHAIN_TRACING_V2"] = "true"                      
+os.environ["LANGCHAIN_API_KEY"] = "这里填写申请的API_KEY"                       
+**调整2:prompt模版设置相关:**           
+PROMPT_TEMPLATE_TXT_SYS = "prompt_template_system.txt"  # 模版文件路径                      
+PROMPT_TEMPLATE_TXT_USER = "prompt_template_user.txt"  # 模版文件路径           
+**调整3:选择使用哪种模型标志设置:**             
+API_TYPE = "oneapi"  # openai:调用gpt模型；oneapi:调用oneapi方案支持的模型(这里调用通义千问)                              
+**调整4:openai模型相关配置 根据自己的实际情况进行调整:**                  
+OPENAI_API_BASE = "这里填写API调用的URL地址"                      
+OPENAI_CHAT_API_KEY = "这里填写LLM模型的API_KEY"                         
+OPENAI_CHAT_MODEL = "gpt-4o-mini"                               
+**调整5:oneapi相关配置(通义千问为例) 根据自己的实际情况进行调整:**              
+ONEAPI_API_BASE = "这里填写oneapi调用的URL地址"                    
+ONEAPI_CHAT_API_KEY = "这里填写LLM模型的API_KEY"                     
+ONEAPI_CHAT_MODEL = "qwen-plus"                                     
+**调整6:API服务设置相关  根据自己的实际情况进行调整:**                         
+PORT = 8012  # 服务访问的端口                       
+### （2）运行apiTest脚本进行检索测试             
+进入basic文件夹下，在使用python apiTest.py命令启动脚本前，需根据自己的实际情况调整代码中的如下参数，运行成功后，可以查看smith的跟踪情况                  
+**调整1:默认非流式输出 True or False**                         
+stream_flag = False                      
+**调整2:检查URL地址中的IP和PORT是否和main脚本中相同**                          
+url = "http://localhost:8012/v1/chat/completions"      
+                        
