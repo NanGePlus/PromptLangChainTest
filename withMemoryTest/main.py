@@ -102,13 +102,13 @@ def get_session_history(user_id: str, conversation_id: str):
     recent_messages_content = [message.content for message in all_messages[-10:]]
     # logger.info(f"recent_messages_content: \n{recent_messages_content}")
     # 清空当前历史，并添加最近10条content
-    new_history = SQLChatMessageHistory(f"{user_id}--{conversation_id}", "sqlite:///memory.db")
+    history.clear()
     for content in recent_messages_content:
         # 重新创建包含content的ChatMessage对象  根据需要设置role为user或assistant
         message = ChatMessage(content=content, role="user")
-        new_history.add_message(message)
-    logger.info(f"历史对话记忆内容: {new_history}\n")
-    return new_history
+        history.add_message(message)
+    logger.info(f"历史对话记忆内容: {history}\n")
+    return history
 
 
 # 获取prompt在chain中传递的prompt最终的内容
