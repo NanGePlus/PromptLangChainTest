@@ -1,7 +1,10 @@
 # 0、相关视频链接          
 (1)【基础-模拟智能推荐客服】本系列视频主要介绍prompt工程相关基础及进阶用例，旨在帮助大家更好地了解和使用prompt。一份代码同时支持GPT和各国产大模型                                        
 https://www.bilibili.com/video/BV1zWH1e6ETp/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                              
-https://youtu.be/mSG7X32CeGA                               
+https://youtu.be/mSG7X32CeGA                  
+(2)【进阶-短期、长期记忆】本系列视频主要介绍prompt工程相关基础及进阶用例，旨在帮助大家更好地了解和使用prompt。一份代码同时支持GPT和各国产大模型             
+https://www.bilibili.com/video/BV1pWH4eZEN6/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                 
+https://youtu.be/C2r1bIVJzr0                    
 
 # 1、基础概念
 ## 1.1 prompt基础
