@@ -165,5 +165,41 @@ PORT = 8012  # 服务访问的端口
 **调整1:默认非流式输出 True or False**                         
 stream_flag = False                      
 **调整2:检查URL地址中的IP和PORT是否和main脚本中相同**                          
-url = "http://localhost:8012/v1/chat/completions"      
+url = "http://localhost:8012/v1/chat/completions"   
+
+## 4.3 模拟客服质量检查测试(进阶2-思维链 Chain of Thoughts CoT)
+思维链，是大模型训练中意外发现的一种推理能力，这一现象展示了人工智能在解决复杂问题时能够模仿人类思维的方式，分解问题并逐步解决，从而提高答案的准确性                                                    
+它是偶然被发现的(OpenAI的人在训练时没想过会这样)                                       
+有人在提问时以「Let’s think step by step」「请一步一步分析以下对话开头」，结果发现AI会把问题分解成多个步骤，然后逐步解决，使得输出的结果更加准确                             
+思维链的原理:                        
+让AI生成更多相关的内容，构成更丰富的「上文」，从而提升「下文」正确的概率                             
+对涉及计算和逻辑推理等复杂问题，尤为有效                                  
+人，不也是这样吗？多想一会儿，答案更靠谱。所以，得把AI当然看                              
+### （1）启动main脚本               
+进入cot文件夹下，在使用python main.py命令启动脚本前，需根据自己的实际情况调整代码中的如下参数：                        
+**调整1:设置langsmith环境变量:**           
+os.environ["LANGCHAIN_TRACING_V2"] = "true"                      
+os.environ["LANGCHAIN_API_KEY"] = "这里填写申请的API_KEY"                       
+**调整2:prompt模版设置相关:**           
+PROMPT_TEMPLATE_TXT_SYS = "prompt_template_system.txt"  # 模版文件路径                      
+PROMPT_TEMPLATE_TXT_USER = "prompt_template_user.txt"  # 模版文件路径           
+**调整3:选择使用哪种模型标志设置:**             
+API_TYPE = "oneapi"  # openai:调用gpt模型；oneapi:调用oneapi方案支持的模型(这里调用通义千问)                              
+**调整4:openai模型相关配置 根据自己的实际情况进行调整:**                  
+OPENAI_API_BASE = "这里填写API调用的URL地址"                      
+OPENAI_CHAT_API_KEY = "这里填写LLM模型的API_KEY"                         
+OPENAI_CHAT_MODEL = "gpt-4o-mini"                               
+**调整5:oneapi相关配置(通义千问为例) 根据自己的实际情况进行调整:**              
+ONEAPI_API_BASE = "这里填写oneapi调用的URL地址"                    
+ONEAPI_CHAT_API_KEY = "这里填写LLM模型的API_KEY"                     
+ONEAPI_CHAT_MODEL = "qwen-plus"                                     
+**调整6:API服务设置相关  根据自己的实际情况进行调整:**                         
+PORT = 8012  # 服务访问的端口              
+### （2）运行apiTest脚本进行检索测试             
+进入basic文件夹下，在使用python apiTest.py命令启动脚本前，需根据自己的实际情况调整代码中的如下参数，运行成功后，可以查看smith的跟踪情况                  
+**调整1:默认非流式输出 True or False**                         
+stream_flag = False                      
+**调整2:检查URL地址中的IP和PORT是否和main脚本中相同**                          
+url = "http://localhost:8012/v1/chat/completions"                          
+
                         
