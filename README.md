@@ -69,8 +69,9 @@ LangSmith是一个用于构建生产级LLM应用程序的平台。通过它，�
 ## 2.1 anaconda、pycharm 安装   
 anaconda:提供python虚拟环境，官网下载对应系统版本的安装包安装即可           
 pycharm:提供集成开发环境，官网下载社区版本安装包安装即可            
-可参考如下视频进行安装,【大模型应用开发基础】集成开发环境搭建Anaconda+PyCharm                   
-https://www.bilibili.com/video/BV1q9HxeEEtT/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                                     
+可参考如下视频进行安装,【大模型应用开发基础】集成开发环境搭建Anaconda+PyCharm                         
+https://www.bilibili.com/video/BV1q9HxeEEtT/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                                    
+https://youtu.be/myVgyitFzrA                      
 
 ## 2.2 OneAPI安装、部署、创建渠道和令牌 
 ### （1）OneAPI是什么
