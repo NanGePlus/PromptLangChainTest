@@ -1,11 +1,14 @@
-# 0、相关视频链接          
-(1)【基础-模拟智能推荐客服】本系列视频主要介绍prompt工程相关基础及进阶用例，旨在帮助大家更好地了解和使用prompt。一份代码同时支持GPT和各国产大模型                                        
+# 0、相关视频链接        
+(1)【大模型应用开发基础】集成开发环境搭建Anaconda+PyCharm                   
+https://www.bilibili.com/video/BV1q9HxeEEtT/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                  
+https://youtu.be/myVgyitFzrA                
+(2)【基础-模拟智能推荐客服】本系列视频主要介绍prompt工程相关基础及进阶用例，旨在帮助大家更好地了解和使用prompt。一份代码同时支持GPT和各国产大模型                                        
 https://www.bilibili.com/video/BV1zWH1e6ETp/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                              
 https://youtu.be/mSG7X32CeGA                  
-(2)【进阶-短期、长期记忆】本系列视频主要介绍prompt工程相关基础及进阶用例，旨在帮助大家更好地了解和使用prompt。一份代码同时支持GPT和各国产大模型             
+(3)【进阶-短期、长期记忆】本系列视频主要介绍prompt工程相关基础及进阶用例，旨在帮助大家更好地了解和使用prompt。一份代码同时支持GPT和各国产大模型             
 https://www.bilibili.com/video/BV1pWH4eZEN6/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                 
 https://youtu.be/C2r1bIVJzr0                
-(3)【进阶-思维链(Chain of Thoughts CoT) 】本系列视频主要介绍prompt工程相关基础及进阶用例，旨在帮助大家更好地了解和使用prompt                 
+(4)【进阶-思维链(Chain of Thoughts CoT) 】本系列视频主要介绍prompt工程相关基础及进阶用例，旨在帮助大家更好地了解和使用prompt                 
 https://www.bilibili.com/video/BV1akpgeeEpG/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                              
 https://youtu.be/YrOL2eIWw7c                    
 
@@ -66,9 +69,8 @@ LangSmith是一个用于构建生产级LLM应用程序的平台。通过它，�
 ## 2.1 anaconda、pycharm 安装   
 anaconda:提供python虚拟环境，官网下载对应系统版本的安装包安装即可           
 pycharm:提供集成开发环境，官网下载社区版本安装包安装即可            
-可参考如下视频进行安装,【大模型应用开发基础】集成开发环境搭建Anaconda+PyCharm                          
-https://www.bilibili.com/video/BV1q9HxeEEtT/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                       
-https://youtu.be/myVgyitFzrA                                   
+可参考如下视频进行安装,【大模型应用开发基础】集成开发环境搭建Anaconda+PyCharm                   
+https://www.bilibili.com/video/BV1q9HxeEEtT/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                                     
 
 ## 2.2 OneAPI安装、部署、创建渠道和令牌 
 ### （1）OneAPI是什么
