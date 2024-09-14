@@ -9,8 +9,11 @@ https://youtu.be/mSG7X32CeGA
 https://www.bilibili.com/video/BV1pWH4eZEN6/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                 
 https://youtu.be/C2r1bIVJzr0                
 (4)【进阶-思维链(Chain of Thoughts CoT) 】本系列视频主要介绍prompt工程相关基础及进阶用例，旨在帮助大家更好地了解和使用prompt                 
-https://www.bilibili.com/video/BV1akpgeeEpG/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                              
-https://youtu.be/YrOL2eIWw7c                    
+https://www.bilibili.com/video/BV1akpgeeEpG/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                                                 
+https://youtu.be/YrOL2eIWw7c                  
+(5)【进阶-自洽性(Self-Consistency) 】本系列视频主要介绍prompt工程相关基础及进阶用例，旨在帮助大家更好地了解和使用prompt                                            
+https://www.bilibili.com/video/BV1d9tKeuEBf/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                                                   
+https://youtu.be/Ev-S8AMo_ts                                                        
 
 # 1、基础概念
 ## 1.1 prompt基础
