@@ -243,6 +243,72 @@ PORT = 8012  # 服务访问的端口
 **调整1:默认非流式输出 True or False**                         
 stream_flag = False                      
 **调整2:检查URL地址中的IP和PORT是否和main脚本中相同**                          
-url = "http://localhost:8012/v1/chat/completions"                          
+url = "http://localhost:8012/v1/chat/completions"                    
+
+## 4.5 进阶案例3:指标解读、项目推荐(进阶4-思维树（Tree-of-thought, ToT）)             
+是一个扩展了思维链（Chain of Thought, CoT）的方法，用于解决复杂问题的推理和规划任务                      
+相比于传统的线性思维链，思维树通过采样和评估多个思维分支，以树状结构进行推理，从而更全面地探索了解空间，最终提高问题解决的准确性和效率                             
+**(1)在思维链的每一步，采样多个分支**                     
+在传统的思维链中，推理过程通常是线性和单一的，每一步仅选择一个推理路径                           
+在思维树中，每一步的推理过程会采样多个可能的分支。每个分支代表一个可能的推理路径或选择，这样可以并行探索多个空间                        
+举例：          
+假设要解决一个数学问题，传统的思维链可能会按照一个固定的步骤逐步推理                      
+在思维树中，系统会在每个步骤考虑多个不同的计算方法或公式，并生成多个可能的解决方案分支                      
+**(2)拓扑展开成一棵思维树**                     
+随着多个分支的生成，整个推理过程不再是线性的，而是拓扑展开成一棵思维树              
+每个节点代表一个推理步骤，每个边代表一个推理路径，整个树结构展示了从起始状态到可能解的所有推理路径             
+关键点：          
+根节点：表示问题的初始状态或起始条件           
+分支节点：表示每一步可能的推理选择           
+叶子节点：表示最终的解决方案或推理结果              
+**(3)判断每个分支的任务完成度，以便进行启发式搜索**              
+由于思维树会产生多个分支，评估每个分支的完成度是关键的一步          
+这意味着需要衡量每个分支在完成任务方面的潜力和进展              
+基于这些评估，启发式搜索算法可以更有效地选择哪些分支应该进一步展开和探索              
+**(4)设计搜索算法**                     
+在构建和评估思维树的基础上，需要设计适合的搜索算法来选择最优的路径              
+这些算法可以基于深度优先、广度优先、蒙特卡洛树搜索（MCTS）等策略，结合启发式评分，决定如何在思维树中进行搜索             
+搜索策略：            
+深度优先搜索：深入探索每一个可能的路径，直到找到一个解或达到搜索深度限制          
+广度优先搜索：同时展开所有可能的路径，逐层搜索直到找到最优解            
+启发式搜索：结合任务完成度和启发式评分，选择最可能成功的路径进行深入探索                
+**(5)判断叶子节点的任务完成的正确性**             
+当搜索算法到达思维树的叶子节点时，需要判断这些节点对应的任务是否正确完成            
+这一步的目的是确保最终的解决方案确实能够满足问题的要求，并且是正确的             
+方法：          
+验证推理路径的逻辑一致性            
+检查解决方案是否符合问题的初始条件和目标            
+使用外部验证（如专家审查、模型校验）来确保任务完成的正确性                      
+**案例描述:** 小明 100 米跑成绩：10.5 秒，1500 米跑成绩：3 分 20 秒，铅球成绩：12 米。他适合参加哪些搏击运动训练                                             
+### （1）启动main脚本               
+进入tot文件夹下，在使用python main.py命令启动脚本前，需根据自己的实际情况调整代码中的如下参数：                        
+**调整1:设置langsmith环境变量:**           
+os.environ["LANGCHAIN_TRACING_V2"] = "true"                       
+os.environ["LANGCHAIN_API_KEY"] = "这里填写申请的API_KEY"                       
+**调整2:prompt模版设置相关:**           
+PROMPT_TEMPLATE_TXT_ANALYSER = "prompt_template_performanceAnalyser.txt"             
+PROMPT_TEMPLATE_TXT_SPORTS = "prompt_template_possibleSports.txt"                 
+PROMPT_TEMPLATE_TXT_EVALUATE = "prompt_template_evaluate.txt"         
+PROMPT_TEMPLATE_TXT_REPORT = "prompt_template_reportGenerator.txt"                       
+**调整3:选择使用哪种模型标志设置:**             
+API_TYPE = "oneapi"  # openai:调用gpt模型；oneapi:调用oneapi方案支持的模型(这里调用通义千问)                              
+**调整4:openai模型相关配置 根据自己的实际情况进行调整:**                  
+OPENAI_API_BASE = "这里填写API调用的URL地址"                      
+OPENAI_CHAT_API_KEY = "这里填写LLM模型的API_KEY"                         
+OPENAI_CHAT_MODEL = "gpt-4o-mini"                               
+**调整5:oneapi相关配置(通义千问为例) 根据自己的实际情况进行调整:**              
+ONEAPI_API_BASE = "这里填写oneapi调用的URL地址"                    
+ONEAPI_CHAT_API_KEY = "这里填写LLM模型的API_KEY"                     
+ONEAPI_CHAT_MODEL = "qwen-plus"                                     
+**调整6:API服务设置相关  根据自己的实际情况进行调整:**                         
+PORT = 8012  # 服务访问的端口                      
+### （2）运行apiTest脚本进行检索测试             
+进入basic文件夹下，在使用python apiTest.py命令启动脚本前，需根据自己的实际情况调整代码中的如下参数，运行成功后，可以查看smith的跟踪情况                  
+**调整1:默认非流式输出 True or False**                         
+stream_flag = False                      
+**调整2:检查URL地址中的IP和PORT是否和main脚本中相同**                          
+url = "http://localhost:8012/v1/chat/completions"  
+
+
 
                         
