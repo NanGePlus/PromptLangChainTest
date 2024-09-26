@@ -311,6 +311,52 @@ PORT = 8012  # 服务访问的端口
 stream_flag = False                      
 **调整2:检查URL地址中的IP和PORT是否和main脚本中相同**                          
 url = "http://localhost:8012/v1/chat/completions"  
+## 4.6 进阶案例4:WebUI页面
+在basic应用案例的基础上，使用Gradio完成WebUI页面的搭建，并完成整个前后端的交互                             
+Gradio是什么？            
+Gradio 是一个开源的 Python 库，旨在简化机器学习模型的部署和演示。它提供了一个用户友好的界面，使开发者能够快速构建和分享交互式应用。以下是 Gradio 的一些主要特点：            
+1. **简单易用**：Gradio 的 API 设计非常直观，用户可以用几行代码创建应用，无需前端开发经验            
+2. **支持多种输入输出**：Gradio 支持多种类型的输入（文本、图像、音频、视频等）和输出，方便用户与模型交互              
+3. **实时预览**：用户可以实时查看模型的输出，方便调试和展示             
+4. **分享和部署**：生成的应用可以通过链接共享，甚至可以在本地服务器上运行，使团队合作和用户反馈变得更加简单             
+5. **集成友好**：Gradio 可以与多种机器学习框架（如 TensorFlow、PyTorch、Scikit-Learn 等）轻松集成，支持将已有模型快速转换为交互式应用            
+6. **自定义界面**：用户可以通过 Gradio 的组件自定义界面，调整布局和样式，以满足特定需求          
+通过 Gradio，开发者能够快速展示他们的机器学习模型，收集用户反馈，从而更好地优化和改进模型           
+https://www.gradio.app/                            
+### （1）gradio测试          
+进入basicWebUI/gradioTest文件夹下,先执行python backend.py,再执行python frontend.py           
+### （2）在basic应用案例的基础上增加一个WebUI前端页面                                   
+1. **启动后端服务**          
+进入basicWebUI文件夹下，在使用python main.py命令启动脚本前，需根据自己的实际情况调整代码中的如下参数：                                     
+**调整1:设置langsmith环境变量:**           
+os.environ["LANGCHAIN_TRACING_V2"] = "true"                       
+os.environ["LANGCHAIN_API_KEY"] = "这里填写申请的API_KEY"                       
+**调整2:prompt模版设置相关:**           
+PROMPT_TEMPLATE_TXT_ANALYSER = "prompt_template_performanceAnalyser.txt"             
+PROMPT_TEMPLATE_TXT_SPORTS = "prompt_template_possibleSports.txt"                 
+PROMPT_TEMPLATE_TXT_EVALUATE = "prompt_template_evaluate.txt"         
+PROMPT_TEMPLATE_TXT_REPORT = "prompt_template_reportGenerator.txt"                       
+**调整3:选择使用哪种模型标志设置:**             
+API_TYPE = "oneapi"  # openai:调用gpt模型；oneapi:调用oneapi方案支持的模型(这里调用通义千问)                              
+**调整4:openai模型相关配置 根据自己的实际情况进行调整:**                  
+OPENAI_API_BASE = "这里填写API调用的URL地址"                      
+OPENAI_CHAT_API_KEY = "这里填写LLM模型的API_KEY"                         
+OPENAI_CHAT_MODEL = "gpt-4o-mini"                               
+**调整5:oneapi相关配置(通义千问为例) 根据自己的实际情况进行调整:**              
+ONEAPI_API_BASE = "这里填写oneapi调用的URL地址"                    
+ONEAPI_CHAT_API_KEY = "这里填写LLM模型的API_KEY"                     
+ONEAPI_CHAT_MODEL = "qwen-plus"                                     
+**调整6:API服务设置相关  根据自己的实际情况进行调整:**                         
+PORT = 8012  # 服务访问的端口  
+2. **启动前端服务**          
+**运行apiTest脚本进行检索测试**                                   
+进入basicWebUI文件夹下，使用python apiWebUI.py命令启动前端脚本                              
+**调整1:默认非流式输出 True or False**                         
+stream_flag = False                      
+**调整2:检查URL地址中的IP和PORT是否和main脚本中相同**                          
+url = "http://localhost:8012/v1/chat/completions"           
+
+
 
 
 
