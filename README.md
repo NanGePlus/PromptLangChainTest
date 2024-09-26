@@ -16,7 +16,10 @@ https://www.bilibili.com/video/BV1d9tKeuEBf/?vd_source=30acb5331e4f5739ebbad50f7
 https://youtu.be/Ev-S8AMo_ts                  
 (6)【进阶-思维树(Tree-of-thought, ToT) 】本系列视频主要介绍prompt工程相关基础及进阶用例，旨在帮助大家更好地了解和使用prompt                
 https://www.bilibili.com/video/BV1zT4oeSEs1/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                        
-https://youtu.be/yOtZwClSl_M              
+https://youtu.be/yOtZwClSl_M           
+(7)零基础搭建AI Web应用：用Gradio+FastAPI实现前后端分离，一键集成GPT和国产大模型！                                        
+https://www.bilibili.com/video/BV1h4xEetEs1/?vd_source=30acb5331e4f5739ebbad50f7cc6b949                                                                     
+https://youtu.be/xVG2ru0IEBA                         
 
 # 1、基础概念
 ## 1.1 prompt基础
